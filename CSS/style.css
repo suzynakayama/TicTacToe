@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Calistoga', cursive;
+    background-color: rgb(1, 11, 26);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 5vh; 
+    text-shadow: 0 0 20px rgb(229, 241, 241);
+}
+
+h3 {
+    text-align: center;
+    color: white;
+    margin-top: 7vh;
+}
+
+#board {
+    display: grid;
+    grid-template-areas: 
+    "sq0 sq1 sq2"
+    "sq3 sq4 sq5"
+    "sq6 sq7 sq8";
+    color: white;
+    height: 21em;
+    width: 21em;
+    margin-top: 10vh;
+    cursor: pointer;
+}
+
+section div {
+    height: 7em;
+    width: 7em;
+    box-shadow: 0 0 20px rgb(79, 183, 214),inset 0 0 10px rgb(94, 183, 206);
+    border-radius: 7%;
+}
+
+#sq0 { grid-area: sq0;}
+#sq1 { grid-area: sq1;}
+#sq2 { grid-area: sq2;}
+#sq3 { grid-area: sq3;}
+#sq4 { grid-area: sq4;}
+#sq5 { grid-area: sq5;}
+#sq6 { grid-area: sq6;}
+#sq7 { grid-area: sq7;}
+#sq8 { grid-area: sq8;}
+
+
+button {
+    font-family: 'Calistoga', cursive;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 10vh;
+    height: 4em;
+    width: 9em;
+    border-radius: 25%;
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 20px rgb(229, 241, 241);
+    box-shadow: 0 0 20px rgb(79, 183, 214),inset 0 0 10px rgb(94, 183, 206);
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1, 1.1);
+}
+
+section div {
+    position: relative;
+}
+
+section div span {
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    width: 112px;
+    height: 112px;
+    font-family: 'Calistoga', cursive;
+    text-align: center;
+    font-size: 30px;
+    line-height: 112px;
+}
+
+.green {
+    color: yellowgreen !important;
+    text-shadow: 0 0 25px yellowgreen;
+}
+
+.yellow {
+    text-shadow: 0 0 20px yellow;
+}
+
+#score {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+}

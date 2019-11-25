@@ -30,7 +30,7 @@ const scoreBoard = document.getElementById('score');
 //Event Listeners
 document.getElementById('board').addEventListener('click', handleClick);
 
-document.getElementById('resetBtn').addEventListener('click', refresh);
+document.getElementById('resetBtn').addEventListener('click', init);
 
 //Init the game
 init()
@@ -44,7 +44,6 @@ function init() {
 
     board = [null, null, null, null, null, null, null, null, null];
 
-    setScore();
     render();
 }
 
@@ -68,7 +67,9 @@ function handleClick(event) {
     setWinner();
 
     //set score
-    setScore();
+    if (winner) {
+        scores[COLORS[winner]]++
+    }
 
     //render de board after click
     render();
@@ -99,6 +100,10 @@ function render() {
         } else if (COLORS[cell] === 'yellow') {
             square.textContent = 'O'
             square.classList.add('yellow')
+        } else {
+            square.textContent = ''
+            square.classList.remove('green')
+            square.classList.remove('yellow')
         }
     })
 
@@ -114,29 +119,5 @@ function render() {
         msg.innerHTML = `<span style="color:${turnColor}">${turnColor.toUpperCase()}</span>'s Turn`;
     }
 
-    //setScore();
-}
-
-function setScore() {
-    scoreBoard.innerHTML= `Score: <br /> Green: 0 <br /> Yellow: 0`;
-    //for (let i = 0; i<; i++)
-    if (winner) {
-        if (winner === 'green') {
-            scoreBoard.innerHTML= `Score: <br /> Green: ${scores[0].value + 1} <br /> Yellow: ${scores[1].value}`;
-        }
-        if (winner === 'yellow') {
-            scoreBoard.innerHTML= `Score: <br /> Green: ${scores[0].value} <br /> Yellow: ${scores[1].value + 1}`;
-        }
-    }
-}
-
-function refresh() {
-    const square = document.getElementById(`s${squareIndex}`);
-    board.forEach(square => {
-        square.style.color = COLORS[null]
-        square.classList.remove('green')
-        square.classList.remove('yellow')
-    });
-
-    init()
+    scoreBoard.innerHTML= `Score: <br /> Green: ${scores['green']} <br /> Yellow: ${scores['yellow']}`;
 }
